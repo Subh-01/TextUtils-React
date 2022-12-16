@@ -24,7 +24,6 @@ export default function TextForm(props) {
     setText(event.target.value);
   };
 
-  // Credits: A
   const handleCopy = () => {
     console.log("I am copy");
     var text = document.getElementById("myBox");
@@ -33,10 +32,16 @@ export default function TextForm(props) {
     navigator.clipboard.writeText(text.value);
   };
 
-  // Credits: Coding Wala
   const handleExtraSpaces = () => {
     let newText = text.split(/[ ]+/);
     setText(newText.join(" "));
+  };
+
+  const handleReplace = () => {
+    let replace = prompt("Which word you want to replace ?");
+    let replaceWith = prompt("Replace with ?");
+    let newText = text.replaceAll(replace, replaceWith);
+    setText(newText);
   };
 
   const [text, setText] = useState("");
@@ -76,6 +81,9 @@ export default function TextForm(props) {
         </button>
         <button className="btn btn-primary mx-1" onClick={handleExtraSpaces}>
           Remove Extra Spaces
+        </button>
+        <button className="btn btn-primary mx-1" onClick={handleReplace}>
+          Replace Text
         </button>
       </div>
       <div
