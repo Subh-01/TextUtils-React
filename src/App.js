@@ -4,8 +4,8 @@ import Navbar from "./Components/Navbar";
 import TextForm from "./Components/TextForm";
 import React, { useState } from "react";
 import Alert from "./Components/Alert";
-//import About from "./Components/About";
-//import { BrowserRouter, Routes, Route } from "react-router-dom";
+import About from "./Components/About";
+import { HashRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   ///return <div className="blank">Lovely</div>;
@@ -40,12 +40,12 @@ function App() {
       {
         // <Navbar title="TextutilsSubh" aboutText="About textUtils" />}
       }
-      {/* <BrowserRouter>    */}
-      <Navbar title="TextUtilsSubham" mode={mode} toggleMode={toggleMode} />
-      <Alert alert={alert} />
-      <div className="container my-3">
-        {/*  <Routes>
-            <Route exact path="/about" element={<About />} />
+      <HashRouter>
+        <Navbar title="TextUtilsSubham" mode={mode} toggleMode={toggleMode} />
+        <Alert alert={alert} />
+        <div className="container my-3">
+          <Routes>
+            <Route exact path="/about" element={<About mode={mode} />} />
           </Routes>
           <Routes>
             <Route
@@ -59,16 +59,15 @@ function App() {
                 />
               }
             />
-            </Routes>     */}
-        <TextForm
-          showAlert={showAlert}
-          heading="Enter  text to analyze"
-          mode={mode}
-        />
-      </div>
-      {
-        //  </BrowserRouter>
-      }
+          </Routes>{" "}
+          {/*           
+          <TextForm
+            showAlert={showAlert}
+            heading="Enter  text to analyze"
+            mode={mode}
+          /> */}
+        </div>
+      </HashRouter>
     </>
   );
 }
